@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Антон Гринченко — Product Lead / AI Product &amp; Transformation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-canopy: #2D5016;
+      --color-moss: #4A7C2E;
+      --color-fern: #6B9B4E;
+      --color-bark: #3E2C1C;
+      --color-parchment: #F5F0E8;
+      --color-linen: #FDFBF7;
+      --color-sage: #A8C896;
+      --color-sunlight: #E8D44D;
+
+      --gradient-hero: linear-gradient(180deg, #F5F0E8 0%, #FDFBF7 50%, #F5F0E8 100%);
+      --gradient-card: linear-gradient(145deg, #FDFBF7 0%, #F0EDE4 100%);
+      --gradient-accent: linear-gradient(135deg, #2D5016 0%, #4A7C2E 50%, #6B9B4E 100%);
+      --gradient-badge: linear-gradient(135deg, rgba(74,124,46,0.1) 0%, rgba(107,155,78,0.1) 100%);
+
+      --shadow-card: 0 4px 24px rgba(62, 44, 28, 0.08);
+      --shadow-soft: 0 2px 12px rgba(62, 44, 28, 0.05);
+
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius-card: 16px;
+      --radius-badge: 10px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--gradient-hero);
+      background-attachment: fixed;
+      color: var(--color-bark);
+      font-size: 1rem;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Top accent bar */
+    .top-bar {
+      height: 4px;
+      background: var(--gradient-accent);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem 4rem;
+    }
+
+    /* ========================
+       HEADER
+    ======================== */
+    header {
+      padding-top: 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-photo-wrap {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid rgba(168, 200, 150, 0.4);
+      box-shadow: var(--shadow-soft);
+      flex-shrink: 0;
+      overflow: hidden;
+      background: var(--color-linen);
+    }
+
+    .header-photo {
+      width: 80%;
+      height: auto;
+      display: block;
+      margin: 5px auto 0;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--color-canopy);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .header-role {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--color-moss);
+      margin-bottom: 1rem;
+    }
+
+    .header-contacts {
+      font-size: 0.95rem;
+      color: var(--color-bark);
+      margin-bottom: 0.35rem;
+      line-height: 1.6;
+    }
+
+    .header-contacts a {
+      color: var(--color-moss);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-contacts a:hover {
+      color: var(--color-canopy);
+      text-decoration: underline;
+    }
+
+    .header-location {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--color-bark);
+      opacity: 0.7;
+    }
+
+    /* ========================
+       DIVIDERS
+    ======================== */
+    .divider {
+      height: 1px;
+      background-color: var(--color-sage);
+      opacity: 0.3;
+      margin: 2rem 0;
+      border: none;
+    }
+
+    .divider-summary {
+      opacity: 0.4;
+    }
+
+    /* ========================
+       SUMMARY
+    ======================== */
+    .summary {
+      padding: 0.5rem 0;
+    }
+
+    .summary p {
+      color: var(--color-bark);
+      line-height: 1.7;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+    }
+
+    .summary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .summary-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      color: var(--color-bark);
+      line-height: 1.7;
+    }
+
+    .summary-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-fern);
+      border-radius: 50%;
+    }
+
+    /* ========================
+       SECTIONS
+    ======================== */
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-canopy);
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid rgba(74, 124, 46, 0.3);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ========================
+       CARDS (Experience)
+    ======================== */
+    .card {
+      background: var(--gradient-card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(168, 200, 150, 0.3);
+      margin-bottom: 1.25rem;
+    }
+
+    .card:last-child {
+      margin-bottom: 0;
+    }
+
+    .card summary {
+      padding: 1.5rem 1.75rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .card summary::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--color-moss);
+      border-bottom: 2px solid var(--color-moss);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .card[open] summary::after {
+      transform: rotate(-135deg);
+    }
+
+    .card-body {
+      padding: 0 1.75rem 1.5rem;
+    }
+
+    .card-header {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-company-role {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-moss);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-company-role a {
+      color: var(--color-moss);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .card-company-role a:hover {
+      color: var(--color-canopy);
+      text-decoration: underline;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--gradient-badge);
+      border: 1px solid rgba(74, 124, 46, 0.2);
+      border-radius: var(--radius-badge);
+      padding: 0.2rem 0.65rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-moss);
+    }
+
+    .card-industry {
+      font-size: 0.85rem;
+      color: var(--color-bark);
+      opacity: 0.65;
+      font-weight: 400;
+    }
+
+    .card-intro {
+      background: rgba(168, 200, 150, 0.1);
+      border-left: 3px solid var(--color-sage);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: var(--color-bark);
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-description:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-context {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-context li {
+      position: relative;
+      padding-left: 1.15rem;
+      margin-bottom: 0.15rem;
+      font-size: 0.9rem;
+      color: var(--color-bark);
+      opacity: 0.85;
+      line-height: 1.55;
+    }
+
+    .card-context li:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-context li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background-color: var(--color-sage);
+      border-radius: 50%;
+    }
+
+    .card-track-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-moss);
+      margin-top: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-achievements {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card-achievements li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.975rem;
+      color: var(--color-bark);
+      line-height: 1.6;
+    }
+
+    .card-achievements li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      background-color: var(--color-fern);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card-achievements li:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-achievements strong {
+      font-weight: 600;
+      color: var(--color-canopy);
+    }
+
+    /* ========================
+       SKILLS
+    ======================== */
+    .skills-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .skills-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-group-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-canopy);
+      margin-bottom: 0.6rem;
+    }
+
+    .skills-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      background: var(--gradient-badge);
+      border: 1px solid rgba(74, 124, 46, 0.2);
+      border-radius: var(--radius-badge);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-moss);
+    }
+
+    /* ========================
+       EDUCATION
+    ======================== */
+    .edu-block {
+      margin-bottom: 1rem;
+    }
+
+    .edu-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-canopy);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-detail {
+      font-size: 0.925rem;
+      color: var(--color-bark);
+      line-height: 1.55;
+    }
+
+    /* Courses */
+    .course-item {
+      margin-bottom: 0.75rem;
+      padding-left: 0;
+    }
+
+    .course-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .course-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-canopy);
+    }
+
+    .course-detail {
+      font-size: 0.9rem;
+      color: var(--color-bark);
+      line-height: 1.5;
+    }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer {
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+      font-size: 0.8rem;
+      color: var(--color-sage);
+      font-weight: 400;
+    }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+      }
+
+      .header-photo-wrap {
+        width: 110px;
+        height: 110px;
+      }
+
+      .page-wrapper {
+        padding: 3.5rem 1.25rem 3rem;
+      }
+
+      header h1 {
+        font-size: 1.85rem;
+      }
+
+      .header-role {
+        font-size: 1rem;
+      }
+
+      .card {
+        padding: 1.25rem 1.25rem;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+      }
+
+      .card-company-role {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"></div>
+
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-text">
+        <h1>Антон Гринченко</h1>
+        <div class="header-role">Product Lead / AI Product &amp; Transformation</div>
+        <div class="header-contacts">
+          Моб.: +7 (921) 260-46-21 · E-mail: <a href="mailto:grinchik_96@icloud.com">grinchik_96@icloud.com</a> · TG: <a href="https://t.me/agrinchenko" target="_blank" rel="noopener noreferrer">@agrinchenko</a>
+        </div>
+        <div class="header-location">Калининград, remote.</div>
+      </div>
+      <div class="header-photo-wrap">
+        <img class="header-photo" src="photo.jpg" alt="Антон Гринченко">
+      </div>
+    </header>
+
+    <hr class="divider divider-summary">
+
+    <!-- SUMMARY -->
+    <div class="summary">
+      <p>Бизнес-ориентированный продуктовый лидер с коммерческим бэкграундом и ai-first подходом.</p>
+      <ul class="summary-list">
+        <li>7+ лет в продукте и коммерции (B2C, B2B, B2C2B).</li>
+        <li>Запуск продуктов с нуля и развитие текущих.</li>
+        <li>Стартапы и крупный бизнес.</li>
+        <li>P&amp;L ownership, stakeholder alignment.</li>
+        <li>Управление командами до 18 человек (разработка, маркетинг, продажи, саппорт).</li>
+        <li>Полный цикл: discovery → go-to-market → growth.</li>
+        <li>Самоходный, работаю руками: фин. моделирование, исследования, ai-прототипирование.</li>
+        <li>Сильный ai-скиллсет: автоматизация рутины, создание mvp-прототипов, агентов.</li>
+        <li>Опыт ai-автоматизации на уровне компании с доказанной экономией для бизнеса в десятках миллионах рублей.</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- EXPERIENCE -->
+    <section>
+      <h2 class="section-title">Опыт</h2>
+
+      <!-- Нетология -->
+      <details class="card" open>
+        <summary>
+          <div class="card-header">
+            <div class="card-company-role"><a href="https://netology.ru" target="_blank" rel="noopener noreferrer">Нетология</a> — Product Lead, Ai-transformation driver</div>
+            <div class="card-meta">
+              <span class="badge">Май 2025 — наст.вр. · 9 мес</span>
+              <span class="card-industry">EdTech, B2B, B2C2B</span>
+            </div>
+          </div>
+        </summary>
+        <div class="card-body">
+          <div class="card-intro">
+            <p class="card-description">Руковожу развитием цифровой платформы для B2B-сегмента в полном продуктовом цикле.</p>
+            <ul class="card-context">
+              <li>HR-кабинет + LMS. SMB, Enterprise, SaaS.</li>
+              <li>Команда разработки в кросс-функциональном управлении</li>
+              <li>Координация с маркетингом, продажами, бизнесом, ИБ, архитектурой.</li>
+              <li>Ответственность на уровне ROI от разработки.</li>
+              <li>Развитие ai-культуры в компании, внедрение автоматизаций.</li>
+            </ul>
+          </div>
+          <div class="card-track-title">Product track:</div>
+          <ul class="card-achievements">
+            <li>Сделал результат разработки измеримым показателем с коммитом на финансовые метрики за счёт внедрения системного discovery (сбор гипотез → приоритезация → тестирование без разработки) с вовлечением стейкхолдеров. <strong>Продуктовые инициативы обеспечили 50% выручки B2B бизнес-юнита в Q4 2025.</strong></li>
+            <li>Для SaaS продукта (SMB) нашёл точки роста retention, <strong>увеличив показатель в продление годовой подписки на 15 п.п.</strong> по первой когорте → <strong>увеличение MAU сотрудников х2, CSI HR-менеджеров с 3,5 до 4,2.</strong></li>
+          </ul>
+          <div class="card-track-title">Ai track:</div>
+          <ul class="card-achievements">
+            <li>Совместно с академическим директором разработал и внедрил каскад ai-агентов в процесс производства образовательного контента → <strong>в 5 раз увеличили объём генерируемых контентных единиц в месяц без увеличения штата и потери качества.</strong></li>
+            <li>Внедрил AI-агента для подготовки PRD (cursor, python, skills, mcp) в продуктовые команды → <strong>время на описание задач и проектов -60%, уточнения и ошибки в реализации сведены к нулю.</strong></li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Maximum Education -->
+      <details class="card">
+        <summary>
+          <div class="card-header">
+            <div class="card-company-role"><a href="https://maximumtest.ru" target="_blank" rel="noopener noreferrer">Maximum Education</a> — Product Owner / Руководитель бизнес-юнита</div>
+            <div class="card-meta">
+              <span class="badge">Июнь 2023 — Декабрь 2024 · 1 год 7 мес</span>
+              <span class="card-industry">EdTech, B2C</span>
+            </div>
+          </div>
+        </summary>
+        <div class="card-body">
+          <div class="card-intro">
+            <p class="card-description">Maximum Education поглотил Умназию — образовался автономный бизнес-юнит, который я возглавил.</p>
+            <ul class="card-context">
+              <li>Отвечал за P&amp;L юнита (курсы для детей 6-14 лет), стратегию развития.</li>
+              <li>Коммерческая команда в прямом подчинении (18 человек). В кросс-функциональном: project-менеджер IT-команды, методисты, аналитики.</li>
+            </ul>
+          </div>
+          <ul class="card-achievements">
+            <li><strong>Вырастил выручку направления YoY на 340%</strong> при целевом FCF</li>
+            <li><strong>Увеличил новые продажи в 2,5x</strong> → аналитика, точки роста, новые воронки маркетинга и продаж</li>
+            <li><strong>Поднял годовой LTV на 28%</strong> → JTBD-сегментация, исследование аудитории, корректировка CJM</li>
+            <li>Запустил новый продукт → <strong>+40% к выручке BU в первый квартал</strong> (discovery, product vision, UE, go-to-market, delivery, найм команды)</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Smart -->
+      <details class="card">
+        <summary>
+          <div class="card-header">
+            <div class="card-company-role"><a href="https://vill-institute.com" target="_blank" rel="noopener noreferrer">Smart (институт Vill)</a> — Growth Product Owner</div>
+            <div class="card-meta">
+              <span class="badge">Ноябрь 2022 — Май 2023 · 7 мес</span>
+              <span class="card-industry">EdTech, B2C</span>
+            </div>
+          </div>
+        </summary>
+        <div class="card-body">
+          <div class="card-intro">
+            <ul class="card-context">
+              <li>Пришёл под конкретную задачу — найти, запустить и масштабировать новый продукт в нише ДПО.</li>
+              <li>Отвечал за discovery, go-to-market стратегию и коммерческие показатели: выручка, средний чек, маржинальность.</li>
+            </ul>
+          </div>
+          <ul class="card-achievements">
+            <li>Запустил продукт с <strong>выполнением плана продаж на 130%</strong> во второй месяц</li>
+            <li><strong>Вырастил выручку x3</strong>, вывел на рентабельность с отрицательных значений</li>
+            <li><strong>Конверсия C2 (заявка → покупка) x1,5</strong> за счёт перестройки взаимодействия маркетинга и продаж</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Умназия -->
+      <details class="card">
+        <summary>
+          <div class="card-header">
+            <div class="card-company-role"><a href="https://umnazia.ru" target="_blank" rel="noopener noreferrer">Умназия</a> — Product Manager, Monetization &amp; Retention</div>
+            <div class="card-meta">
+              <span class="badge">Сентябрь 2020 — Октябрь 2022 · 2 года</span>
+              <span class="card-industry">EdTech, B2C</span>
+            </div>
+          </div>
+        </summary>
+        <div class="card-body">
+          <div class="card-intro">
+            <p class="card-description">Присоединился к EdTech-стартапу после привлечения инвестиций.</p>
+            <ul class="card-context">
+              <li>Вместе с компанией прошёл pivot и тесты рынков USA / Latam.</li>
+              <li>Отвечал за воронки монетизации трафика и удержание пользователей: конверсия первой сессии, онбординг, retention, LTV.</li>
+            </ul>
+          </div>
+          <ul class="card-achievements">
+            <li><strong>Конверсия первой сессии (C1) для платного трафика: 3% → 4,5%, CPL -30%</strong> (cusdev, A/B-тесты, UX-интервью)</li>
+            <li><strong>Конверсия из регистрации в активацию +20 п.п.</strong> → новая воронка онбординга</li>
+            <li><strong>Monthly retention +8 п.п.</strong> → когортный анализ, RFM-сегментация, триггерные цепочки возврата</li>
+            <li><strong>LTV +25%</strong> → ценовые эксперименты, апсейл-воронки, оптимизация CJM по сегментам</li>
+            <li>Построил модель юнит-экономики продукта: <strong>целевые CAC/LTV по сегментам</strong> → основа для решений по каналам и ценообразованию</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- LSF -->
+      <details class="card">
+        <summary>
+          <div class="card-header">
+            <div class="card-company-role">LSF — Продюсер онлайн-школ</div>
+            <div class="card-meta">
+              <span class="badge">Май 2017 — Июль 2019 · 2 года 3 мес</span>
+            </div>
+          </div>
+        </summary>
+        <div class="card-body">
+          <p class="card-description">Запуск 17 рентабельных онлайн-школ с нуля, совокупный оборот 20 млн ₽/мес. Рост от стартапа из 3 человек до команды из 17.</p>
+        </div>
+      </details>
+
+    </section>
+
+    <hr class="divider">
+
+    <!-- SKILLS -->
+    <section>
+      <h2 class="section-title">Навыки</h2>
+
+      <div class="skills-group">
+        <div class="skills-group-title">Product / Business</div>
+        <div class="skills-badges">
+          <span class="skill-badge">P&amp;L</span>
+          <span class="skill-badge">Product Strategy</span>
+          <span class="skill-badge">Discovery</span>
+          <span class="skill-badge">Delivery</span>
+          <span class="skill-badge">Юнит-экономика</span>
+          <span class="skill-badge">Growth</span>
+          <span class="skill-badge">A/B-тесты</span>
+          <span class="skill-badge">Analytics</span>
+          <span class="skill-badge">Cross-functional Leadership</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-group-title">AI &amp; Tech</div>
+        <div class="skills-badges">
+          <span class="skill-badge">Prompt Engineering</span>
+          <span class="skill-badge">Context Engineering</span>
+          <span class="skill-badge">Claude Code CLI</span>
+          <span class="skill-badge">Cursor</span>
+          <span class="skill-badge">Codex CLI</span>
+          <span class="skill-badge">MCP</span>
+          <span class="skill-badge">AI-агенты</span>
+          <span class="skill-badge">LLM-автоматизация процессов</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-group-title">Tools</div>
+        <div class="skills-badges">
+          <span class="skill-badge">Amplitude</span>
+          <span class="skill-badge">FineBI / Power BI / DataLens / Superset</span>
+          <span class="skill-badge">Figma</span>
+          <span class="skill-badge">Notion</span>
+          <span class="skill-badge">Jira</span>
+          <span class="skill-badge">Miro</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EDUCATION -->
+    <section>
+      <h2 class="section-title">Образование</h2>
+
+      <div class="edu-block">
+        <div class="edu-name">Балтийский федеральный университет им. И. Канта, Калининград</div>
+        <div class="edu-detail">Институт экономики и менеджмента, Маркетинг. Бакалавр, 2014–2018</div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- COURSES -->
+    <section>
+      <h2 class="section-title">Курсы</h2>
+
+      <div class="course-item">
+        <div class="course-name">AI-assisted development — Глеб Кудрявцев, 2026</div>
+        <div class="course-detail">полный цикл: идея → продукт, через AI-инструменты</div>
+      </div>
+
+      <div class="course-item">
+        <div class="course-name">Технические знания для продакта — ProductDo, 2025</div>
+        <div class="course-detail">архитектура, API, метрики, риски</div>
+      </div>
+
+      <div class="course-item">
+        <div class="course-name">Как делать продукт, который клиенты будут покупать — Ваня Замесин, 2022</div>
+        <div class="course-detail">JTBD, интервью</div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      2026 · Антон Гринченко
+    </footer>
+
+  </div>
+
+</body>
+</html>
