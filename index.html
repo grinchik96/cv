@@ -144,6 +144,61 @@
       opacity: 0.7;
     }
 
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .header-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0.58rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(168, 200, 150, 0.34);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .header-action:hover {
+      color: var(--color-canopy);
+    }
+
+    .header-action:focus-visible {
+      outline: 2px solid var(--color-canopy);
+      outline-offset: 2px;
+    }
+
+    .header-action-primary {
+      background: rgba(107, 155, 78, 0.12);
+      color: var(--color-moss);
+      border-color: rgba(107, 155, 78, 0.24);
+    }
+
+    .header-action-primary:hover {
+      background: rgba(107, 155, 78, 0.18);
+      border-color: rgba(74, 124, 46, 0.3);
+      color: var(--color-canopy);
+    }
+
+    .header-action-secondary {
+      background: rgba(253, 251, 247, 0.68);
+      color: var(--color-bark);
+    }
+
+    .header-action-secondary:hover {
+      background: rgba(245, 240, 232, 0.95);
+      color: var(--color-canopy);
+      border-color: rgba(74, 124, 46, 0.28);
+    }
+
     /* ========================
        DIVIDERS
     ======================== */
@@ -527,6 +582,15 @@
         font-size: 1rem;
       }
 
+      .header-actions {
+        gap: 0.6rem;
+        margin-top: 1.1rem;
+      }
+
+      .header-action {
+        width: 100%;
+      }
+
       .card {
         padding: 1.25rem 1.25rem;
       }
@@ -566,6 +630,11 @@
           Моб.: +7 (921) 260-46-21 · E-mail: <a href="mailto:grinchik_96@icloud.com">grinchik_96@icloud.com</a> · TG: <a href="https://t.me/agrinchenko" target="_blank" rel="noopener noreferrer">@agrinchenko</a>
         </div>
         <div class="header-location">Калининград, remote.</div>
+        <div class="header-actions" aria-label="Быстрые действия">
+          <a class="header-action header-action-primary" href="output/pdf/anton-grinchenko-resume.pdf" download="anton-grinchenko-resume.pdf">Скачать в PDF</a>
+          <a class="header-action header-action-secondary" href="mailto:grinchik_96@icloud.com">Написать на почту</a>
+          <a class="header-action header-action-secondary" href="https://t.me/agrinchenko" target="_blank" rel="noopener noreferrer">Telegram</a>
+        </div>
       </div>
       <div class="header-photo-wrap">
         <img class="header-photo" src="photo.jpg" alt="Антон Гринченко">
