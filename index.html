@@ -538,6 +538,17 @@
       color: var(--color-canopy);
     }
 
+    .course-name a {
+      color: var(--color-canopy);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .course-name a:hover {
+      color: var(--color-moss);
+      text-decoration: underline;
+    }
+
     .course-detail {
       font-size: 0.9rem;
       color: var(--color-bark);
@@ -865,6 +876,11 @@
     <!-- COURSES -->
     <section>
       <h2 class="section-title">Курсы</h2>
+
+      <div class="course-item">
+        <div class="course-name"><a href="https://ai-native.aimindset.org/" target="_blank" rel="noopener noreferrer">AI-Native Organizations Sprint — AI Mindset × CybOS, 2026</a></div>
+        <div class="course-detail">переход от AI-assisted к AI-native: агентные команды, контекстная архитектура, Personal / Team OS</div>
+      </div>
 
       <div class="course-item">
         <div class="course-name">AI-assisted development — Глеб Кудрявцев, 2026</div>
