@@ -493,7 +493,7 @@ def build_resume_story(styles_map: dict[str, ParagraphStyle], photo_path: Path) 
             "Нетология",
             "https://netology.ru",
             "Product Lead, Ai-transformation driver",
-            "Май 2025 — наст.вр. · 9 мес",
+            "Май 2025 — Апрель 2026 · 1 год",
             "EdTech, B2B, B2C2B",
             [
                 "Руковожу развитием цифровой платформы для B2B-сегмента в полном продуктовом цикле.",
@@ -693,7 +693,15 @@ def build_resume_story(styles_map: dict[str, ParagraphStyle], photo_path: Path) 
     story.append(divider())
     story.extend(section_header("Курсы", styles_map))
     course_items = [
-        ("AI-assisted development — Глеб Кудрявцев, 2026", "полный цикл: идея → продукт, через AI-инструменты"),
+        (
+            "Специалист по искусственному интеллекту — Нетология, 2026",
+            "разработка AI-решений: Python, ML-модели, LLM через API, RAG-системы, архитектура и деплой ИИ-агентов",
+        ),
+        (
+            "AI-Native Organizations Sprint — AI Mindset × CybOS, 2026",
+            "переход от AI-assisted к AI-native: агентные команды, контекстная архитектура, Personal / Team OS",
+        ),
+        ("AI-assisted development — Глеб Кудрявцев, 2025", "полный цикл: идея → продукт, через AI-инструменты"),
         ("Технические знания для продакта — ProductDo, 2025", "архитектура, API, метрики, риски"),
         ("Как делать продукт, который клиенты будут покупать — Ваня Замесин, 2022", "JTBD, интервью"),
     ]
