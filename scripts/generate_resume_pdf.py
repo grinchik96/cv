@@ -453,7 +453,8 @@ def build_experience_card(
         content.append(Spacer(1, 7))
 
     for track_title, bullets in tracks:
-        content.append(para(esc(track_title), styles_map["track"]))
+        if track_title:
+            content.append(para(esc(track_title), styles_map["track"]))
         for item in bullets:
             content.append(bullet(item, styles_map))
         content.append(Spacer(1, 2))
@@ -490,10 +491,37 @@ def build_resume_story(styles_map: dict[str, ParagraphStyle], photo_path: Path) 
     story.append(
         build_experience_card(
             styles_map,
+            "Частная практика",
+            None,
+            "Ai Transformation Advisor",
+            "Март 2026 — наст.вр.",
+            None,
+            [
+                "Помогаю компаниям пройти переход к AI-first организации с фокусом на коммерческий результат:",
+            ],
+            [],
+            [
+                (
+                    "",
+                    [
+                        "Аудит текущего состояния, формирование карты и целевых результатов трансформации.",
+                        "Сопровождение процесса в кросс-функциональных командах: продажи, маркетинг, разработка, аналитика, продукт.",
+                        "AI-adoption специалистов: обучение и интеграция сотрудников в новую AI-среду.",
+                        "Проектирование AI-first архитектуры компании — переход с файлового хранения и стандартных тулзов на AI-native стек.",
+                        "Ответственность за коммерческий эффект от трансформации.",
+                    ],
+                ),
+            ],
+        )
+    )
+
+    story.append(
+        build_experience_card(
+            styles_map,
             "Нетология",
             "https://netology.ru",
             "Product Lead, Ai-transformation driver",
-            "Май 2025 — Апрель 2026 · 1 год",
+            "Май 2025 — Апрель 2026 · 11 мес",
             "EdTech, B2B, B2C2B",
             [
                 "Руковожу развитием цифровой платформы для B2B-сегмента в полном продуктовом цикле.",
